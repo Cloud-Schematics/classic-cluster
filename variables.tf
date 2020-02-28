@@ -26,6 +26,7 @@ variable ibm_region {
 variable public_vlan_ids {
   description = "List of public vlans. The first will be for the master, any additional will be for worker pools"
   type        = "list"
+
 }
 
 variable private_vlan_ids {
@@ -52,6 +53,11 @@ variable cluster_name {
   default     = "classic-cluster"
 }
 
+variable kube_version {
+  description = "Kube version to use for the cluster. use `ibmcloud ks versions` to see a list of available versions"
+  default     = "1.15.10"
+}
+
 variable default_pool_size {
   description = "Default pool size for cluster"
   default     = 1  
@@ -65,6 +71,11 @@ variable hardware {
 variable machine_type {
   description = "hardware type for cluster"
   default     = "b2c.4x16"
+}
+
+variable private_only {
+  description = "Provision cluster workers on private only"
+  default     = false
 }
 
 ##############################################################################
